@@ -1,0 +1,168 @@
+{% extends 'index.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{%block 'content'%}
+  <!-- Slider -->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>contact us</h4>
+        
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li class="active">contact us</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Content -->
+  <div id="content"> 
+    <!-- Contact Us -->
+    <section class="lets-talk pad-t-b-130">
+      <div class="container"> 
+        <!-- Cantact Us -->
+        <div class="row">
+          <div class="col-md-6 contact-social"> 
+            
+            <!-- Main Heading -->
+            <div class="heading-block margin-bottom-60">
+              <h3 class="text-transform-none letter-space-0">{{footer.address_header}}</h3>
+            </div>
+            <ul class="studio-loc padding-right-100">
+              <div class="margin-bottom-60">
+                <li><i class="flaticon-route"></i> {{footer.address}}</li>
+              </div>
+              <div class="">
+                <li><i class="flaticon-smartphone"></i> <a href="tel:{{footer.phone}}">{{footer.phone}}</a> <br>
+                  <a href="tel:{{footer.phone2}}">{{footer.phone2}}</a></li>
+              </div>              
+              <li><i class="flaticon-mail"></i> <a href="mailto:{{footer.email1}}">{{footer.email1}}</a> <br>
+                <a href="mailto:{{footer.email2}}">{{footer.email2}}</a></li>
+            </ul>
+            
+            <!-- Main Heading -->
+            <div class="heading-block margin-bottom-40 margin-top-60">
+              <h3 class="text-transform-none letter-space-0">Follow Us</h3>
+            </div>
+            <div class="social-links">
+              {% if follow_us %}
+                <ul>
+
+                  {% if follow_us.show_facebook == True %}
+                    <li><a href="{{follow_us.facebook_link}}"><i class="fa fa-facebook"></i></a></li>
+                  {% endif %}
+
+                  {% if follow_us.show_twitter == True %}
+                    <li><a href="{{follow_us.twitter_link}}"><i class="fa fa-twitter"></i></a></li>
+                  {% endif %}
+                  
+                  {% if follow_us.show_dribbble == True %}  
+                    <li><a href="{{follow_us.dribbble_link}}"><i class="fa fa-behance"></i></a></li>
+                  {% endif %}
+
+                  {% if follow_us.show_behance == True %}  
+                    <li><a href="{{follow_us.behance_link}}"><i class="fa fa-behance"></i></a></li>
+                  {% endif %}
+
+                  {% if follow_us.show_pinterest == True %}  
+                    <li><a href="{{follow_us.pinterest_link}}"><i class="fa fa-pinterest"></i></a></li>
+                  {% endif %}
+
+                  {% if follow_us.show_google_plus == True %}  
+                    <li><a href="{{follow_us.google_plus_link}}"><i class="fa fa-google-plus"></i></a></li>
+                  {% endif %}
+
+                  {% if follow_us.show_lindedin == True %}  
+                    <li><a href="{{follow_us.lindedin_link}}"><i class="fa fa-linkedin"></i></a></li>
+                  {% endif %}
+
+                </ul>
+              {% else %}
+                <ul>
+                  <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#."><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#."><i class="fa fa-dribbble"></i></a></li>
+                  <li><a href="#."><i class="fa fa-behance"></i></a></li>
+                  <li><a href="#."><i class="fa fa-pinterest"></i></a></li>
+                  <li><a href="#."><i class="fa fa-google-plus"></i></a></li>
+                  <li><a href="#."><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+              {% endif %}
+              
+            </div>
+          </div>
+          
+          <!-- Contact Form -->
+          <div class="col-sm-6">
+          <!-- Main Heading -->
+            <div class="heading-block left-align margin-bottom-60">
+              <h3 class="text-transform-none letter-space-0">Conatct Us</h3>
+            </div>
+          
+            <div class="contact">               
+              <!-- Success Msg -->
+              <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>              
+              <!-- FORM -->
+              <form role="form" enctype="multipart/form-data" id="contact_form" class="contact-form" method="post">
+                {% csrf_token %}
+                {% for hidden_field in form.hidden_fields %}
+                  {{ hidden_field.errors }}
+                  {{ hidden_field }}
+                {% endfor %}
+                <ul class="row nolist-style">
+                  <li class="col-sm-12">
+                    <label>
+                      {% comment %} <input type="text" class="form-control" name="name" id="name" placeholder="Name"> {% endcomment %}
+                      {{ form.name|as_crispy_field }}
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label>
+                      {{ form.email|as_crispy_field }}
+                      {% comment %} <input type="text" class="form-control" name="email" id="email" placeholder="Email"> {% endcomment %}
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label>
+                      {{ form.phone|as_crispy_field }}
+                      {% comment %} <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone"> {% endcomment %}
+                    </label>
+                  </li>
+                  <li class="col-sm-12">
+                    <label style="color: #0e0d0d; !!important">
+                      {{ form.message|as_crispy_field }}
+                      {% comment %} <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message"></textarea> {% endcomment %}
+                    </label>
+                  </li>
+                  <li class="col-sm-12 text-left">
+                    <button type="submit"  class="btn btn-inverse" value="submit" id="btn_submit" onClick="proceed();">SUBMIT</button>
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- MAP -->
+    <section class="map-block">
+      {% if location %}
+        <div class="map-wrapper" id="map-canvas" data-lat="{{location.latitude}}" data-lng="{{location.longitude}}" data-zoom="3" data-style="1"></div>
+        <div class="markers-wrapper addresses-block"> <a class="marker" data-rel="map-canvas" data-lat="{{location.latitude}}" data-lng="{{location.longitude}}" data-string="{{location.company_name}}"></a> </div>
+      {% else %}<!--  href="https://www.google.com/maps/?q=26.301526,50.214871" -->
+        <div class="map-wrapper" id="map-canvas" data-lat="26.301526" data-lng="50.214871" data-zoom="3" data-style="1"></div>
+        <div class="markers-wrapper addresses-block"> <a class="marker" data-rel="map-canvas" data-lat="26.301526" data-lng="50.214871" data-string="Location"></a> </div>
+      {% endif %}
+    </section>
+
+
+    <!-- OUR Partherns -->
+    
+    
+     <!-- Clients -->
+  </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'index.html'%}
+{% load static %}
+{%block 'content'%}
+
+<!-- Page Wrapper -->
+
+  
+  <!-- Slider -->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>error page</h4>
+        
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li class="active">error page</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Content -->
+  <div id="content"> 
+    
+    <!-- OUR TEAM --> 
+    
+    <!-- Tesm Text -->
+    <section class="error-page text-center pad-t-b-130">
+      <div class="container "> 
+        
+        <!-- Heading -->
+        <h1>404</h1>
+        <p>We're sorry, the page you requested cannot be found.<br>
+          You can go back to</p>
+        <hr class="dotted">
+        <a href="{% url 'index' %}" class="btn btn-inverse">BACK TO HOME</a> </div>
+    </section>
+  </div>
+  <!-- End Content --> 
+{% endblock 'content' %}
+{% include 'footer.html' %} 

@@ -1,0 +1,93 @@
+{% load static %}
+
+  <!-- Header -->
+  <header class="header">
+    <div class="sticky">
+      <div class="container">
+        <div class="logo"> 
+          {% if logo.logo %}
+            <!-- Main Nav Logo --> 
+            <a class="main-logo" href="{% url 'index' %}"><img height="41px" src="{{logo.logo.url}}" alt=""></a> 
+            <!-- Logo sticky --> 
+            <a class="logo-sticky" href="{% url 'index' %}"><img height="41px" src="{{logo.logo.url}}" alt=""></a></div>
+          {% else %}
+            <!-- Main Nav Logo --> 
+            <a class="main-logo" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a> 
+            <!-- Logo sticky --> 
+            <a class="logo-sticky" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt=""></a></div>
+          {% endif %}
+          
+        <!-- Nav -->
+        <nav class="navbar ownmenu">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span><i class="fa fa-navicon"></i></span> </button>
+          </div>
+          
+          <!-- NAV -->
+          <div class="collapse navbar-collapse" id="nav-open-btn">
+            <ul class="nav">
+              <li class="dropdown "> <a href="{% url 'index' %}">Home </a>
+                
+              </li>
+              <li class="dropdown "> <a href="{% url 'about-us' %}" >About Us </a>
+                
+              </li>
+              <li class="dropdown"> <a href="{% url 'contact-us' %}">Contact Us</a>
+                
+              </li>
+            </ul>
+          </div>
+          
+          <!-- NAV RIGHT -->
+          <div class="nav-right">
+            <ul>
+              <!--<li>
+                <div class="fly-nac-icon for-all">
+                  <div class="toggle-button" id="toggle"> <span class="bar top"></span> <span class="bar middle"></span> <span class="bar bottom"></span> </div>
+                </div>
+              </li>-->
+              <li> <a href="javascript:void(0);" class="search-open"><i class="fa fa-search"></i></a>
+                <div class="search-inside animated-4s fadeIn"> <i class="lnr lnr-cross search-close"></i>
+                  <div class="search-overlay"></div>
+                  <div class="position-center-center">
+                    <div class="container">
+                      <div class="search">
+                        <form>
+                          <input type="search" placeholder="Type Your Search...">
+                          <button type="submit"><i class="lnr lnr-magnifier"></i></button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- End Header --> 
+
+
+    <!-- Nav 
+    <div class="fly-nav on-page">
+        <nav class="overlay" id="overlay">
+          <div class="position-center-center">
+            <ul>
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'about-us' %}">About Us </a></li>
+              <li><a href="{% url 'contact-us' %}">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="botton-info">
+            <div class="container-fluid">
+              <div class="col-sm-6">
+                <p>2018 © M_Adnan. All rights reserved</p>
+              </div>
+              <div class="col-sm-6 text-right"> <a href="#."><i class="fa fa-facebook"></i></a> <a href="#."><i class="fa fa-google"></i></a> <a href="#."><i class="fa fa-behance"></i></a> <a href="#."><i class="fa fa-twitter"></i></a> </div>
+            </div>
+          </div>
+        </nav>
+      </div>-->

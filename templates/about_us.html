@@ -1,0 +1,108 @@
+{% extends 'index.html'%}
+{% load static %}
+
+{%block 'content'%}
+  
+  <!-- Slider -->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>About us</h4>
+        
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li class="active">About</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Content -->
+  <div id="content"> 
+    
+    <!-- About Sec -->
+
+    <!-- SERVICES -->
+    <section class="services serv-info">
+      <ul class="row no-margin">
+        <!-- Digital Art -->
+        {% for item in about_us %}
+          <li class="col-md-4"
+            {% if item.image %}
+              style="background: url({{item.image.url}}) no-repeat;"
+            {% else %}
+              style="background: url(/static/images/servics-bg-1.jpg) no-repeat;"
+            {% endif %}
+          >
+            <div class="ser-inn">
+              <h4>{{item.header}}</h4>
+              <p>{{item.paragraph}}</p>
+              <!-- <a href="#." class="btn btn-dark btn-small">DISCOVER</a> </div> -->
+              <br />
+              <br />
+              <br />
+          </li>
+        {% endfor %}
+        
+      </ul>
+    </section>
+    
+    <!-- Counter -->
+    <div class="counters nolist-style">
+      <ul class="row">
+        
+        <!-- PROPOSALS SENT -->
+        {% for number in numbers %}
+            <li class="col-sm-3"> <span class="counter" >{{ number.number }}</span>
+                <p>{{ number.text }}</p>
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+    <!-- Tesm Text -->
+    <section class="team-testi" data-stellar-background-ratio="0.5"
+      {% if section_two.image %}
+        style="background: url({{section_two.image.url}}) no-repeat;"
+      {% else %}
+        style="background: url(/static/images/team-text-bg-1.jpg) no-repeat;"
+      {% endif %}
+    >
+      <div class="container">
+        <div class="t-t-in">
+          <h3>“ 
+            {{section_two.text}}
+              ”</h3>
+          <h6></h6>
+        </div>
+      </div>
+    </section>
+    
+    <!-- OUR TEAM -->
+   
+    <!-- End Content --> 
+    
+    <!-- OUR SERVICES -->
+    <section class="client-sec">
+      <div class="container"> 
+        
+        <!-- Heading -->
+        <div class="heading-block margin-bottom-30">
+          <h3>{{partherns.header}}</h3>
+          <hr>
+        </div>
+        <div class="intro-small col-md-8 center-auto">
+          <p>{{partherns.text_description}}</p>
+        </div>
+        <div class="slide-5 text-center">
+          {% for p in partherns.parthernsimage_set.all %}
+            <div><img  height="95" src="/{{p.icon}}" alt="" ></div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  {% endblock 'content' %}
