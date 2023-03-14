@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
+
+from jobcy import settings
 # urls.py
 from . import views
 
@@ -38,4 +40,8 @@ urlpatterns = [
     # path('bookmark-jobs',views.BookmarkJobs.as_view(),name='bookmark-jobs'),
     # path('profile',views.Profile.as_view(),name='profile'),
 ]
+
+from django.conf.urls.static import static
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = views.error_404_view
