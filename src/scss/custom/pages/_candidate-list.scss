@@ -1,0 +1,60 @@
+//
+//candidate-list.scss
+//
+
+.candidate-list-box{
+    transition: all 0.5s ease;
+    .favorite-icon{
+        position: absolute;
+        right: 22px;
+        top: 22px;
+    }
+    &:hover{
+        transform: translateY(-8px);
+        box-shadow: $box-shadow;
+        border-color: $primary;
+    }
+}
+
+.profile-active {
+    padding: 5px;
+    top: -4px;
+    right: -5px;
+    border: 2px solid $white;
+}
+
+
+.featured-label{
+    top: 10px;
+    position: absolute;
+    right: 0px;
+    .featured {
+        margin-bottom: 10px;
+        color: $white;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 10px;
+        background: $purple;
+        position: relative;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 6px;
+        &::before {
+            content: "";
+            position: absolute;
+            border-top: 11px solid transparent;
+            border-bottom: 11px solid transparent;
+            border-right: 11px solid $purple;
+            left:-11px;
+            top: 0;
+        }
+    }
+}
+
+/*****************dark-mode******************/
+
+body[data-layout-mode='dark'] {  
+    .profile-active { 
+        border-color: $gray-dark-300;
+    }
+}

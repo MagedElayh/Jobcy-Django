@@ -1,0 +1,75 @@
+{% load static %}
+<!-- Footer -->
+<footer>
+    
+
+    <div class="container">
+      <div class="foot-up">
+        <div class="row">
+          {% if logo.logo %}
+            <div class="col-sm-3 padding-right-50"> <img height="41px" class="foot-logo" src="{{logo.logo.url}}" alt="" > </div>
+          {% else %}
+            <div class="col-sm-3 padding-right-50"> <img class="foot-logo" src="{% static 'images/footer-logo.png' %}" alt="" > </div>
+          {% endif %}
+          <div class="col-sm-9">
+            <div class="pos-info">
+              <ul class="row">
+                <li class="col-sm-4"> <i class="flaticon-route"></i>
+                  <h6>{{footer.address_header}}</h6>
+                  <p>{{footer.address}} </p>
+                </li>
+                <li class="col-sm-4"> <i class="flaticon-mail"></i>
+                  <h6>{{footer.email_header}}</h6>
+                  <a href="mailto:{{footer.email1}}">{{footer.email1}}</a> <a href="mailto:{{footer.email2}}">{{footer.email2}}</a> </li>
+                <li class="col-sm-4"> <i class="flaticon-smartphone"></i>
+                  <h6>{{footer.phone_header}}</h6>
+                  <a href="tel:{{footer.phone}}">{{footer.phone}}</a> <a href="tel:{{footer.phone2}}">{{footer.phone2}}</a> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-down">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 text-left">
+            <p>{{footer.text_under_line}}</p>
+            
+          </div>
+          <div class="col-sm-6">
+            {% if follow_us.show_facebook == True %}
+              <a href="{{follow_us.facebook_link}}"><i class="fa fa-facebook"></i></a>
+            {% endif %}
+
+            {% if follow_us.show_twitter == True %}
+              <a href="{{follow_us.twitter_link}}"><i class="fa fa-twitter"></i></a>
+            {% endif %}
+            
+            {% if follow_us.show_dribbble == True %}  
+              <a href="{{follow_us.dribbble_link}}"><i class="fa fa-behance"></i></a>
+            {% endif %}
+
+            {% if follow_us.show_behance == True %}  
+              <a href="{{follow_us.behance_link}}"><i class="fa fa-behance"></i></a>
+            {% endif %}
+
+            {% if follow_us.show_pinterest == True %}  
+              <a href="{{follow_us.pinterest_link}}"><i class="fa fa-pinterest"></i></a>
+            {% endif %}
+
+            {% if follow_us.show_google_plus == True %}  
+              <a href="{{follow_us.google_plus_link}}"><i class="fa fa-google-plus"></i></a>
+            {% endif %}
+
+            {% if follow_us.show_lindedin == True %}  
+              <a href="{{follow_us.lindedin_link}}"><i class="fa fa-linkedin"></i></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </footer>
+  <!-- End Footer --> 

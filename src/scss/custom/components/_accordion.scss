@@ -1,0 +1,38 @@
+//
+//accordion.scss
+//
+
+.accordion-item {
+    .accordion-header {
+        .accordion-button {
+            color:$primary;
+            background-color: rgba($primary, 0.1);
+            &:focus {
+                box-shadow: none;
+            }
+            &::after {
+                background-image: none;
+                font-family: unicons-line;
+                content: '\eb3a';
+                font-size: 23px;
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+            }
+        }
+    }
+}
+
+/*****************dark-mode*************    *****/
+
+body[data-layout-mode='dark'] { 
+    .accordion-item {
+        background-color: $gray-dark-400;
+        .accordion-header{
+            .accordion-button{ 
+                color: $gray-100;
+                background-color: $gray-dark-300;
+            }
+        }
+    }
+}

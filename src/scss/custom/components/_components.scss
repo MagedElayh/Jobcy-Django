@@ -1,0 +1,81 @@
+//
+// components.scss
+//
+
+.ui-elements-bar {
+  padding: 24px;
+  background-color: $white;
+  position: sticky;
+  overflow-y: auto;
+  top: 90px;
+  height: calc(100vh - 165px);
+  margin-right: 20px;
+  .nav {
+    .nav-item {
+      .nav-link {
+        color: $text-muted;
+        font-weight: 500;
+  
+        &:hover {
+          color: $dark;
+        }
+      }
+      &.active {
+        .nav-link {
+          color: $dark;
+        }
+      }
+    }
+  }
+}
+
+/*****************dark-mode******************/
+
+body[data-layout-mode="dark"] {
+  .ui-elements-bar {
+    background-color: $gray-dark-300;
+    .nav {
+      .nav-item {
+        .nav-link {
+          color: $gray-dark-700;
+
+          &:hover {
+            color: $gray-100;
+          }
+        }
+      }
+    }
+  }
+
+  .offcanvas {
+    background-color: $gray-dark-300;
+    border-color: $gray-dark-300;
+  }
+
+  .progress {
+    background-color: $gray-dark-300;
+  }
+
+  .modal {
+    .modal-content {
+      background-color: $gray-dark-300;
+      border-color: $gray-dark-300;
+      .modal-header,
+      .modal-footer {
+        border-color: $gray-dark-400;
+      }
+    }
+  }
+  .btn-close {
+    filter: invert(1);
+  }
+  .table {
+    color: $gray-100;
+    border-color: $gray-dark-400;
+  }
+
+  .table-striped>tbody>tr:nth-of-type(odd) {
+    color: $gray-100;
+    --bs-table-accent-bg: #283039; 
+  }
+}

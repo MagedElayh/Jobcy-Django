@@ -1,0 +1,49 @@
+//
+//npagination.scss
+//
+
+
+.pagination {
+    .page-item {
+        .page-link {
+            border-radius: 40px;
+            height: 45px;
+            width: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 4px;
+            &:hover, &:focus {
+                color: $gray-600;
+            }
+        }
+        &.active {
+            .page-link{
+                &:hover, &:focus{
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+
+/*****************dark-mode******************/
+
+body[data-layout-mode='dark'] {
+    .job-pagination {
+        .page-item {
+            .page-link {
+                background-color: $gray-dark-400;
+                border-color: $gray-dark-400;
+            }
+
+            &.active {
+                .page-link {
+                    background-color: $primary;
+                    border-color: $primary;
+                }
+            }
+        }
+    }
+}
