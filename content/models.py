@@ -71,7 +71,7 @@ class SectionUnderSliderIcon(models.Model):
 
 
 class SectionTwo(models.Model):    
-    image   = models.ImageField(verbose_name=_("image_slide"), upload_to="static/image/home")
+    image   = models.ImageField(verbose_name=_("image_slide"), upload_to="media/image/home")
     header = models.CharField(max_length=200, unique=False)
     paragraph = models.CharField(max_length=1000, unique=False)
 
@@ -147,7 +147,7 @@ class PorfolioItem(models.Model):
 
 
 class porfolioDetail(models.Model):
-    image   = models.ImageField(verbose_name=_("image"), upload_to="static/image")
+    image   = models.ImageField(verbose_name=_("image"), upload_to="media/image")
     text_description = models.TextField(max_length=2000)
     porfolioItem = models.ForeignKey(PorfolioItem, on_delete=models.CASCADE,blank=True)
     
@@ -174,7 +174,7 @@ class Portfolio(models.Model):
 
 
 class SectionFourProfessional(models.Model):
-    image_background = models.ImageField(verbose_name=_("image"), upload_to="static/image")
+    image_background = models.ImageField(verbose_name=_("image"), upload_to="media/image")
     name_section = models.CharField(verbose_name=_("name section"),max_length=200)
     header = models.CharField(max_length=200, unique=False)
     paragraph = models.CharField(max_length=2000, unique=False)
@@ -201,7 +201,7 @@ class SectionFiveOurTeams(models.Model):
 
 #Section Five our Teams
 class SectionImage(models.Model):
-    image   = models.ImageField(verbose_name=_("image of team"), upload_to="static/image")
+    image   = models.ImageField(verbose_name=_("image of team"), upload_to="media/image")
     text_description = models.CharField(max_length=2000)
     user_name = models.CharField(_("name of team"), max_length=50)
     department = models.CharField(_("department"), max_length=50)
@@ -211,7 +211,7 @@ class SectionImage(models.Model):
 
 
 class SectionSixCustomersSay(models.Model):
-    image_background = models.ImageField(verbose_name=_("image background section"), upload_to="static/image")
+    image_background = models.ImageField(verbose_name=_("image background section"), upload_to="media/image")
     header = models.CharField(max_length=200, unique=False)
 
     def __str__(self) -> str:
@@ -221,7 +221,7 @@ class SectionSixCustomersSay(models.Model):
         verbose_name_plural = "10. What Our Customers Say"
 
 class CustomersSay(models.Model):
-    customer_icon = models.ImageField(verbose_name=_("customer icon"), upload_to="static/image")
+    customer_icon = models.ImageField(verbose_name=_("customer icon"), upload_to="media/image")
     paragraph = models.CharField(max_length=2000, unique=False)
     customer_name = models.CharField(max_length=2000, unique=False)
     customer_name2 = models.CharField(max_length=2000, unique=False)
@@ -242,7 +242,7 @@ class NewsSection(models.Model):
 
 
 class NewsImage(models.Model):
-    image   = models.ImageField(verbose_name=_("news image"), upload_to="static/image/news")
+    image   = models.ImageField(verbose_name=_("news image"), upload_to="media/image/news")
     date = models.DateField(auto_now=False,auto_now_add=False)
     Header_paragraph = models.CharField(max_length=200, unique=False)
     text_description = models.TextField(max_length=2000)
@@ -264,7 +264,7 @@ class Partherns(models.Model):
     
 
 class ParthernsImage(models.Model):
-    icon = models.ImageField(verbose_name=_("image"), upload_to="static/parthers")
+    icon = models.ImageField(verbose_name=_("image"), upload_to="media/parthers")
     parthers = models.ForeignKey(Partherns, on_delete=models.CASCADE,blank=True)
     
 
@@ -285,7 +285,7 @@ class Footer(models.Model):
         verbose_name_plural = "13. Footer"
 
 class Logo(models.Model):
-    logo = models.ImageField(_("logo"), upload_to="static/image/logo",help_text = "logo must be width 113 px and height 41 px.")
+    logo = models.ImageField(_("logo"), upload_to="media/image/logo",help_text = "logo must be width 113 px and height 41 px.")
 
     def __str__(self):
         return self.logo.url
