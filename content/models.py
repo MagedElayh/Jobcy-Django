@@ -30,7 +30,7 @@ class Header(models.Model):
 
 class Slider(models.Model):
     # title field using charfield constraint with unique constraint
-    image_slide   = models.ImageField(verbose_name=_("image_slide"), upload_to="static/image/slider")
+    image_slide   = models.ImageField(verbose_name=_("image_slide"), upload_to="media/image/slider")
     text_header_slide = models.CharField(max_length=200, unique=False)
     text2_slide = models.CharField(max_length=200, unique=False)
     text3_slide = models.CharField(max_length=200, unique=False)
